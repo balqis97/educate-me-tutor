@@ -118,10 +118,7 @@ const setupUI = (user) => {
                     <td> <a href="#class-tutor-section"> <button id="Classview" class="onView" >View</button></a> </td>
                     <td> <button id="Classdelete" onclick"deleteClass()" class="onDelete" >Delete</button> </td>`
                    
-                 
-                  
-
-
+        
                     const t_subj = `<h3> ${doc.data().SubjClass}</h3>`;
                     const sect = `<p> Section ${doc.data().SectClass}</p>`;
 
