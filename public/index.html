@@ -1,0 +1,539 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-ducate.Me | Login & Register</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <script src="https://kit.fontawesome.com/1036134b61.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- header section starts -->
+      <header class="header">
+          <!-- e-ducate-me logo -->
+          <a href="index.html" class="logo"><img src="images/Full Logo2.png"></a>
+          
+          <input type="checkbox" id="menu-bar">
+          <label for="menu-bar" class="fas fa-bars"></label>
+
+          <!-- navigation bar -->
+          <nav class="navbar">
+              <ul>
+                  <li>
+                      <a id="home-nav">Home</a>
+                  </li> 
+                  <li class="logged-out">
+                      <a href="#apply-tutor-section" id="apply-tutor-nav">Apply Tutor Job </a>
+                  </li>
+                  <li class="logged-in">
+                      <a href="#tutor-profile-section" id="tutor-profile-nav">My Profile</a>
+                  </li>
+                  <li class="logged-in">
+                      <a href="#student-list-section" id="studlist-nav">Student Request</a>
+                  </li>
+                  <li class="logged-out">
+                      <a href="#login-tutor-section" id="auth-tutor">Login</a>
+                  </li>
+                  <li id="logout" class="logged-in"><a href="#">Logout</a></li>
+              </ul>
+          </nav>
+      </header>
+    <!-- header section ends -->
+    
+    <!-- Login tutor start -->
+      <section id="login-tutor-section" class="login-tutor"> 
+      <div class="container" id="container">
+          <!-- Row -->
+          <div class="row">
+              <!-- Sign-up -->
+              <div class="col align-center flex-col sign-up">
+                  <div class="form-wrapper align-center">
+                      <form class="form sign-up" id="signup-form">
+                          <div class="input-group">
+                              <i class="fas fa-envelope"></i>
+                              <input type="email" placeholder="Email" id="signup-email" required>
+                          </div>
+                          <div class="input-group">
+                              <i class="fas fa-lock"></i>
+                              <input type="password" placeholder="Password" id="signup-password" required>
+                          </div>
+                          <button onclick="signUpBtn()" id="sign-up btn">Sign up</button>
+                          <p>
+                              <span>Already have an account?</span>
+                              <b id="sign-in">Sign in here</b>
+                          </p>
+                      </form>
+                  </div>
+
+                  <!-- Social Wrapper -->
+                  <!-- <div class="form-wrapper">
+                      <div class="social-list align-center sign-up">
+                          <div class="align-center google-bg">
+                              <i class="fab fa-google"></i>
+                          </div>
+                          <div class="align-center facebook-bg">
+                              <i class="fab fa-facebook"></i>
+                          </div>
+                      </div>
+                  </div> -->
+              </div>
+              <!-- End Sign-Up -->
+
+              <!-- Sign In -->
+              <div class="col align-center flex-col sign-in" id="modal-signin">
+                  <div class="form-wrapper align-center">
+                      <form class="form sign-in" id="signin-form">
+                          <div class="input-group">
+                              <i class="fas fa-user"></i>
+                              <input type="text" placeholder="Email" name="email" id="signin-email" required>
+                          </div>
+                          <div class="input-group">
+                              <i class="fas fa-lock"></i>
+                              <input type="password" placeholder="Password" id="signin-password" required>
+                          </div>
+                          <button href="#tutor-profile-section" id="tutor-signin" >Sign in</button>
+                         
+                          <p>
+                              <span>Don't have an account?</span>
+                              <b id="sign-up">Sign up here</b>
+                          </p>
+                      </form>
+                  </div>
+
+          
+          </div>
+          <!-- End Row -->
+
+          <!-- Content Section -->
+          <div class="row content-row">
+              <!-- Sign In content -->
+              <div class="col align-center flex-col">
+                  <div class="text sign-in">
+                      <h2>Welcome Back</h2>
+                      <p>
+                          Log in to your account now. Know more about the updates on classes 
+                          you have enrolled. Don't forget to rate the tutor as we are 
+                          providing quality educators to you all!  
+                      </p>
+                  </div>
+                  <div class="sign-in img">
+                      <img src="images/image1.png" alt="">
+                  </div>
+              </div>
+              <!-- Sign Up Content -->
+              <div class="col align-center flex-col">
+                  <div class="text sign-up">
+                      <h2>Register Now</h2>
+                      <p>
+                          Create your account now and find the best tutor for the subject 
+                          you would like to request for! We serve you the best of the best.
+                      </p>
+                  </div>
+                  <div class="sign-up img">
+                      <img src="images/image3.png" alt="">
+                  </div>
+              </div>
+          </div>
+      </div>
+      </section>
+    <!-- Login tutor end -->
+
+    <!-- Apply tutor form start -->
+      <section class="apply-tutor-job" id="apply-tutor-section">
+      <div class="container-register ">
+          <div class="title">Apply as a Tutor</div>
+          <div class="content">
+            <form action="#" id="register-form">
+              <div class="user-details">
+                <div class="input-box">
+                  <span class="details">Full Name</span>
+                  <input  id="f_name" type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Email</span>
+                  <input id="t_email" type="text" placeholder="Enter your email" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Password</span>
+                  <input id="t_password" type="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Phone Number</span>
+                  <input id="phone_no" type="number" placeholder="Enter your number" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Teaching Subject</span>
+                  <select class="subject" id="subj" >
+                      <option value="Select subject"> Select Subject </option>
+                      <option value="Mathematic">Mathematic</option>
+                      <option value="English">English</option>
+                  </select>
+                </div>
+                  <div class="input-box">
+                    <span class="details">Background Education</span>
+                    <input class="Edu" id="edu" type="text" placeholder="*eg: Master in Mathematic (UM)" required>
+                  </div>
+                  <div>
+                      <span class="details">Upload Your Resume</span>
+                      <input type="file" id="file" >
+                    </div>
+                </div>
+              </div>
+              <button>Register</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    <!-- Apply tutor form End -->
+
+    <!-- Tutor Profile start -->
+      <section class="Tutor-profile-content" id="tutor-profile-section" >
+        
+          <div class="learner-container">
+              <div class="profile-box flex-col">
+                <h2>My Profile</h2>
+                  <div class="image-icon">
+                      <img src="images/profile-icon.jpeg" id="photo">
+                  </div>
+
+                  <div class="upload-tutorPicture">
+                      <input type="file" id="filePhoto" class="file-photo">
+                      <button onclick="uploadImage()" id="uploadBtn"> Upload Image </button>
+                      <!-- <label for="file" id="uploadBtn">Choose Photo</label> -->
+                  </div>
+
+              </div> 
+
+              <div class="profile-box2">
+                  <div id="list-Profile">
+                    <div>
+                      <h4>Name:</h4> 
+                      <p class="tutorName"> </p>
+                    </div> <br>
+                      <div>
+                        <label><h4>Email:</h4> </label>
+                        <p class="tutorEmail"> </p>
+                      </div> <br>
+                      <div>
+                        <label> <h4> Phone Number:</h4></label>
+                        <p class="tutorContactNo"> </p>
+                      </div> <br>
+                      <div>
+                        <label> <h4> Teaching Subject:</h4></label>
+                        <p class="teachingSubj"> </p>
+                      </div><br>
+                      <div>
+                        <label> <h4> Education Background:</h4></label>
+                        <p class="eduBackground"> </p>
+                      </div> <br>
+                      <div>
+                        <label> <h4> Fees:</h4></label>
+                        <p class="paymentFee"></p>
+                        <p class="ClassFrom"> </p>
+                        <p class="DayClass"> </p>
+                      </div> <br>
+                  </div> 
+                  <br>
+                  <!-- <button class="updateProfile-btn">Update</button> -->
+                  
+              </div>
+
+              <!-- Calendar Part -->
+        <div id ="table" class="profile-box flex-col">
+          <div class="card">
+            <h2>Today</h2> <br>
+            <div class="calendar">
+              <div class="calendar-body">
+                <span class="month-name">Month</span>
+                <span class="day-name">Day</span>
+                <span class="date-number">00</span>
+                <span class="year">0000</span>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+          </div>
+
+          <div class="profile-box3">
+              <div>
+                <h2>My Class</h2><br>
+                        <form class="form-inline" id="addclass-form">
+                                <div>
+                                    <label> <h4>Class Start</h4></label><label class="validation-error hide" id="fullNameValidationError">*required.</label>
+                                    <input type="time" name="time" id="f_time">
+                                </div>
+                                <div>
+                                  <label> <h4>Class End</h4></label><label class="validation-error hide" id="fullNameValidationError">*required.</label>
+                                  <input type="time" name="time" id="t_time">
+                                </div>
+                                <div class="input-box">
+                                  <span class="details"> <h4>Day</h4> </span>
+                                  <select type="text"class="Day" id="day" >
+                                      <option value="Select Day"> Select Day </option>
+                                      <option value="Monday">Monday</option>
+                                      <option value="Tuesday">Tuesday</option>
+                                      <option value="Wednesday">Wednesday</option>
+                                      <option value="Thursday">Thursday</option>
+                                      <option value="Friday">Friday</option>
+                                      <option value="Saturday">Saturday</option>
+                                      <option value="Sunday">Sunday</option>
+                                  </select>
+                                </div>
+                                <div class="input-box">
+                                  <span class="details"> <h4>Subject</h4></span>
+                                  <select type="text" class="t_subject" id="t_subj" >
+                                      <option value="Select subject"> Select Subject </option>
+                                      <option value="Mathematic">Mathematic</option>
+                                      <option value="English">English</option>
+                                  </select>
+                                </div>
+                                <div class="input-box">
+                                  <span class="details"><h4>Form</h4></span>
+                                  <select type="text" class="tech_form" id="tech_form" >
+                                      <option value="Select Section"> Select Form </option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                  </select>
+                                </div>
+                                <div class="input-box">
+                                  <span class="details"><h4>Section</h4></span>
+                                  <select type="text" class="section" id="sect" >
+                                      <option value="Select Section"> Select Section </option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                  </select>
+                                </div>
+                              <br>
+                                  <button > Add Class </button>
+                              
+                              </form>
+                  
+                  <br>
+                  <table class="list" id="listClass">
+                    <thead>
+                        <tr >
+                            <th>Time From</th>
+                            <th>Time To</th>
+                            <th>Day</th>
+                            <th>Subject</th>
+                            <th>Form</th>
+                            <th>Section</th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+          
+                    </tbody>
+                </table>
+
+                <p> </p>
+              </div>
+          </div> 
+      </section>
+    <!-- Tutor Profile End -->
+
+    <!-- CLASS TUTOR section starts -->
+      <section class="Class-tutor-content" id="class-tutor-section">
+          <section id="grid-container3">
+            <form id ="techMaterials" class="grid-item ">
+              <h2>Teaching Materials</h2> <br>
+              <div>
+                <h3 class="SubjClass"> </h3>
+                <p class="SectClass"> </p>
+              </div> <br>
+              <div id="name-matrials"> 
+                <div class=""> </div>
+              </div>
+                <br>
+                <div class="input-box">
+                  <span class="details">Date: </span>
+                  <input  class="topicClass" id="ClassDate" type="date" placeholder="Enter your topic" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Topic: </span>
+                  <input  class="topicClass" id="ClassTopic" type="text" placeholder="Enter your class link" required>
+                </div><br>
+                <div>
+                <span class="topic">Notes:</span>
+                <input type="file" id="Notes">
+              </div>
+              <div>
+                <span class="topic">Exercise:</span>
+                <input type="file" id="Exercise">
+              </div> 
+              <div>
+                <button> Add </button>
+              </div>
+            </form>
+            </div>
+        
+          </section>
+
+          <section id="grid-container3">
+            <form id ="listMaterials" class="grid-item ">
+              
+              <div id="name-materials"> 
+                <div class=""> </div>
+              </div>
+                <br>
+                <div class="input-box">
+                  <h3 class="DateClass"> Date : </h3>
+                </div> <br>
+                <div class="input-box">
+                  <h3  class="TopicClass" >Topic :</h3>
+                </div> <br>
+                <div>
+                <span class="topic">Notes:</span>
+              </div> <br>
+              <div>
+                <span class="topic">Exercise:</span>
+              </div> <br>
+              <div>
+              </div>
+            </form>
+            </div>
+        
+          </section>
+
+      </section>      
+    <!-- CLASS TUTOR section ends -->
+
+     <!-- Student request section starts -->
+      <section class="Student-list-content" id="student-list-section">
+  
+          <!-- <section id="grid-container3">
+            <h2>My Student</h2> <br>
+            <div id ="table" class="grid-item ">
+                <h3> Student Request</h3> <br>
+                <div class="input-box">
+                  <span class="details">Name: </span>
+                  <input  class="topicClass" type="text" placeholder="Enter your topic" required>
+                </div> <br>
+                <div class="input-box">
+                  <span class="details">Subject: </span>
+                  <input  class="topicClass" type="text" placeholder="Enter your topic" required>
+                </div> <br>
+                <div class="input-box">
+                  <span class="details">Day: </span>
+                  <input  class="topicClass" type="text" placeholder="Enter your topic" required>
+                </div> <br>
+                <div class="input-box">
+                  <span class="details">Time: </span>
+                  <input  class="topicClass" type="text" placeholder="Enter your topic" required>
+                </div> <br>
+                <div> <button > Accept </button> </div> <br>
+                <div> <button > Reject </button> </div>
+              </div>
+              </div>
+            </div>
+          </section> -->
+
+          <section id="grid-container3">
+            <h2>My Student</h2> <br>
+            <div id ="table" class="grid-item ">
+                <h3>Student Request</h3> <br>
+
+                <table class="list" id="listStudents">
+                  <thead>
+                      <tr >
+                          <th>Name</th>
+                          <th>Day</th>
+                          <th>Time</th>
+                          <th>Subject</th>
+                          <th colspan="2" >Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+        
+                  </tbody>
+              </table>
+              </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="grid-container3">
+            <div id ="table" class="grid-item ">
+                <h3>Student List</h3> <br>
+
+                <table class="list 2" id="listStudents 2">
+                  <thead>
+                      <tr >
+                          <th>Name</th>
+                          <th>Day</th>
+                          <th>Time</th>
+                          <th>Subject</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+        
+                  </tbody>
+              </table>
+              </div>
+              </div>
+            </div>
+          </section>
+          
+      </section>       
+    <!-- Student request section ends -->
+
+
+
+<!-- footer section starts -->
+  <!-- <section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Subjects Offered</h3>
+            <a href="#"><i class="fas fa-arrow-right"></i>English</a>
+            <a href="#"><i class="fas fa-arrow-right"></i>Mathematics</a>
+        </div>
+
+        <div class="box">
+            <h3>Follow Us</h3>
+            <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a>
+            <a href="#"><i class="fab fa-twitter"></i>Twitter</a>
+            <a href="#"><i class="fab fa-instagram"></i>Instagram</a>
+            <a href="#"><i class="fab fa-github"></i>Github</a>
+        </div>
+
+    </div>
+
+    <div class="credit"> Created by <span>E-ducate.Me's Developers</span> | All Rights Reserved</div>
+
+  </section> -->
+<!-- footer section ends -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/auth.js"></script>
+
+      <!-- javascript files for calendar -->
+      <script type="text/javascript">
+      const dayNumber = new Date().getDate();
+      const year = new Date().getFullYear();
+      const dayName = new Date().toLocaleString("default", {weekday: "long"});
+      const monthName = new Date().toLocaleString("default", {month: "long"});
+
+      document.querySelector(".month-name").innerHTML = monthName;
+      document.querySelector(".day-name").innerHTML = dayName;
+      document.querySelector(".date-number").innerHTML = dayNumber;
+      document.querySelector(".year").innerHTML = year;
+      </script>
+
+   
+</body>
+</html>
