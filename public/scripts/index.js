@@ -108,73 +108,109 @@ const setupUI = (user) => {
             db.collection("TutorRegistration").doc(user.uid).collection('ClassRegistration').get().then(snapshot => {
                 snapshot.docs.forEach(doc => {
                   listClass.innerHTML +=  `
-                  <tr data-id='${doc.id}'>
-                    <td>${doc.data().ClassFrom}</td>
-                    <td>${doc.data().ClassTo}</td>
-                    <td>${doc.data().DayClass}</td>
+                    <tr data-id='${doc.id}'>
+                    <td> ${doc.data().DayClass} </br> ${doc.data().ClassFrom} - ${doc.data().ClassTo}</td>
                     <td>${doc.data().SubjClass}</td>
                     <td>${doc.data().TeachForm}</td>
                     <td>${doc.data().SectClass}</td>
                     <td> <a href="#class-tutor-section"> <button id="Classview" class="onView" >View</button></a> </td>
-                    <td> <button id="Classdelete" onclick"deleteClass()" class="onDelete" >Delete</button> </td>`
-                   
-        
-                    const t_subj = `<h3> ${doc.data().SubjClass}</h3>`;
-                    const sect = `<p> Section ${doc.data().SectClass}</p>`;
-
-                    SubjClass.innerHTML = t_subj;
-                    SectClass.innerHTML = sect;
+                    <td> <button id="Classdelete" onclick"deleteClass()" class="onDelete" >Delete</button> </td> </tr>`;
                     console.log(doc.data());
 
+                    //view teaching materials page
+                    const btnView = document.querySelector(`[data-id='${doc.id}'] .onView`)
+                    btnView.addEventListener('click',(e) =>{
+                      e.preventDefault();
+                      const classMat = document.querySelector("#classMat");
+                      db.collection('TutorRegistration').doc(user.uid).collection('ClassRegistration').doc(`${doc.id}`).get().then(() =>{
+                        classMat.innerHTML +=`
+                        <h3> ${doc.data().SubjClass}</h3>
+                        <p> Section ${doc.data().SectClass}</p>`
+                        
+                        // const id  = `${doc.id}`
+                        // const t_subj = `<h3> ${doc.data().SubjClass}</h3>`;
+                        // const sect = `<p> Section ${doc.data().SectClass}</p>`;
+                        
+                        // id.innerHTML = id;
+                        // SubjClass.innerHTML = t_subj;
+                        // SectClass.innerHTML = sect;
+   
+                      })
+                    })
+                   
+                    //delete data from tutor class
+                    const btnDelete = document.querySelector(`[data-id='${doc.id}'] .onDelete`);
+                    btnDelete.addEventListener('click',(e) =>{
+                    e.preventDefault();
+                    if (confirm("Are you sure want to delete this class?")== true){
+                      db.collection('TutorRegistration').doc(user.uid).collection('ClassRegistration').doc(`${doc.id}`).delete().then(() => {
+                        console.log('Class succesfully deleted!');
+                      }).catch(err => {
+                        console.log('Error removing document', err);
+                      });
+                    }else {
+                        console.log('Class not deleted!');
+                    }
+                  
+                    });
                 });
-                  //delete data from tutor class
-                  // const btnDelete = document.querySelector(`[data-id='${doc.id}'] .onDelete`);
-                  // btnDelete.addEventListener('click',() =>{
-                  //   db.collection("TutorRegistration").doc(user.uid).collection('ClassRegistration').doc(`${doc.id}`).delete().then(() => {
-                  //     console.log('Class succesfully deleted!');
-                  //   }).catch(err => {
-                  //     console.log('Error removing document', err);
-                  //   });
-                  // });
           });
       });
 
-      //get teching materials
-      // const listMaterials = document.querySelector("#listMaterials");
+      //get teching materials buat macam table punya function tapi version lain
+     const listMaterials = document.querySelector("#listMaterials");
       db.collection('TutorRegistration').doc(user.uid).get().then(snapshot => {
         db.collection("TutorRegistration").doc(user.uid).collection('ClassRegistration').get().then(snapshot => {
-          db.collection('TutorRegistration').doc(user.uid).collection('ClassRegistration').doc(user.uid).collection('TeachingMaterials').get().then(snapshot => {
+          db.collection('TutorRegistration').doc(user.uid).collection('ClassRegistration').doc(user.id).collection('TeachingMaterials').get().then(snapshot => {
             snapshot.docs.forEach(doc => {
-              // listMaterials.innerHTML +- `
-              //  <p> ${doc.data().DateClass} </p>
-              //   `
-              
+              console.log(doc.data());
+             listMaterials.innerHTML +=`
+             <h3>${doc.data().DateClass} </h3>
+             <h3>${doc.data().TopicClass} </h3>`
+
+
               // TopicClass.innerHTML = ClassTopic;
               // const ClassDate = `<h3> ${doc.data().DateClass}</h3>`;
               // const ClassTopic = `<h3> ${doc.data().TopicClass}</h3>`;
-              //  TopicClass.innerHTML = ClassTopic; 
               // DateClass.innerHTML = ClassDate;
-                  console.log(doc.data());
+              // TopicClass.innerHTML = ClassTopic; 
+
+            console.log(doc.data());
           });
         });  
       });
   });
-
+ 
   //get class registration tutor
   const listStudents = document.querySelector("#listStudents");
   db.collection('TutorRegistration').doc(user.uid).get().then(snapshot => {
         db.collection("TutorRegistration").doc(user.uid).collection('StudentRequest').get().then(snapshot => {
             snapshot.docs.forEach(doc => {
               listStudents.innerHTML +=  `
+               <tr data-id='${doc.id}'>
                 <td>${doc.data().studName}</td>
-                <td>${doc.data().day}</td>
-                <td>${doc.data().time}</td>
+                <td>${doc.data().day} <br> ${doc.data().time}</td>
                 <td>${doc.data().subject}</td>
                 <td> <button id="AcceptStud" class="onAccept" >Accept</button></a> </td>
-                <td> <button id="RejectStud"  class="onReject" >Reject</button> </td>`
+                <td> <button id="RejectStud"  class="onReject" >Reject</button> </td> </tr>`
                
-                //console.log(doc.data());
-
+                const acceptbtn = document.querySelector(`[data-id='${doc.id}'] .onAccept`);
+                acceptbtn.addEventListener('click',() =>{
+                  document.getElementById("listStudents").deleteRow(1);
+                })
+              
+                 
+                
+                //delete students from list tutor class
+                 const btnDelete = document.querySelector(`[data-id='${doc.id}'] .onReject`);
+                 btnDelete.addEventListener('click',(e) =>{
+                 e.preventDefault();
+                 db.collection('TutorRegistration').doc(user.uid).collection('StudentRequest').doc(`${doc.id}`).delete().then(() => {
+                   console.log('Student succesfully rejected!');
+                   }).catch(err => {
+                     console.log('Error removing document', err);
+                   });
+                 });
             });
 
       });
@@ -246,31 +282,3 @@ generateCalendar = (month, year) => {
 
 
 
-
-                // function deleteClass() {
-                //   var id = e.target.parentElement.getAttribute('addclassForm');
-                //   db.collection('TutorRegistration').doc(user.uid).collection('ClassRegistration').doc(id).delete().then(() =>{
-                //     console.log("Document successfully deleted!");
-                //     }).catch((error) => {
-                //         console.error("Error removing document: ", error);
-                //   })
-                // }
-
-                // onDelete.addEventListener('click',(e) =>{
-                //   e.stopPropagation();
-                  // let id = e.target.parentElement.getAttribute('addclassForm');
-                  // db.collection('TutorRegistration').doc(user.uid).collection('ClassRegistration').doc(id).delete().then(() =>{
-                  //   console.log("Document successfully deleted!");
-                  //   }).catch((error) => {
-                  //       console.error("Error removing document: ", error);
-                  // })
-                // })
-                // var onDelete = document.querySelector('.onDelete');
-                // onDelete.forEach(function (btn){
-                //   btn.onclick=function(){
-                //     var id = btn.getAttribute('listClass');
-                //     db.collection('TutorRegistration').doc(user.uid).collection('ClassRegistration').doc(id).delete();
-                //   }
-                //   // let id = e.target.parentElement.getAttribute('listClass');
-                //   console.log('Class delete');
-                // })

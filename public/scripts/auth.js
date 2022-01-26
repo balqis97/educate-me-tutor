@@ -37,84 +37,57 @@ auth.onAuthStateChanged((user) => {
 
 
 // tutor register using set cred
-
 const registerForm = document.querySelector('#register-form');
 registerForm.addEventListener('submit', (e) =>{
     e.preventDefault();
     const t_email = registerForm['t_email'].value;
     const t_password = registerForm['t_password'].value;
     // const file = registerForm['file'].value;
-    auth.createUserWithEmailAndPassword(t_email, t_password).then(cred => {
-      return db.collection('TutorRegistration').doc(cred.user.uid).set({
-          tutorEmail: t_email,
-          tutorName: registerForm['f_name'].value,
-          tutorContactNo: registerForm['phone_no'].value,
-          teachingSubj: registerForm['subj'].value,
-          eduBackground: registerForm['edu'].value,
-         
-          
-      });
+    auth.createUserWithEmailAndPassword(t_email, t_password)
+    .then(cred => {
+
+      db.collection('TutorRegistration').doc(cred.user.uid).set({
+          tutorEmail: t_email ,
+          tutorName: registerForm['f_name'].value ,
+          tutorContactNo: registerForm['phone_no'].value ,
+          teachingSubj: registerForm['subj'].value ,
+          eduBackground: registerForm['edu'].value ,
+        
+      })
+
+      const file = document.getElementById("file").files[0];
+      const storageRef = firebase.storage().ref();
+      const final = storageRef.child('Resume' + cred.user.uid);
+      const task = final.put(file);
+
+      task.on('state_changed',
+      function progress(progress){
+        console.log(progress.bytesTranferred / progress.totatlBytes * 100)
+      },
+      function error(err){
+        console.log('There was an err' + err)
+      })
 
     }) 
-    let storageRef = firebase.storage();
 
-    let file = document.getElementById('file').files[0]
-    console.log(file)
-
-    let thisRef = storageRef.child(file.name)
-
-    thisRef.put(file).then(res=>{
-      console.log('upload Success')
-      alert('Upload Succes')
-    }).catch(e=>{
-      console.log('Error'+ e)
-    })
-    
-    
-//  const storageRef = firebase.storage().ref();
-    // const file = document.querySelector('#fileButton').files[0];
-    // const final = storage.child(`resume/${file}`);
-    // const task = final.put(file);
-
-    // task.on('state_changed',
-    //   function progress(progress){
-    //     console.log(progress.bytesTransferred / progress.totalBytes * 100)
-    //   },
-    //   function error(err){
-    //     console.log('There was An Err' + err)
-    //   }
-    // )
-    
-    // const storageRef = firebase.storage().ref();
-    // const fileRef = storageRef.child('Tutor/' + 'Resume/'+ user.uid);
-    // const task = fileRef.put(file);
-    // task.on('state_changed', 
-    // function progress(snapshot) {
-    //   var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    //   uploader.value = percentage;
-    //   })
-      
-  //   .then(()=> {
-  //   registerForm.reset();
-  //   alert("Your account has been created! Go to Sign-In page")
-  // });
+      window.location.href = "#tutor-profile-nav";
 })
 
-function uploadImage(){
-  const ref = firebase.storage().ref('Tutor/');
-  const file = document.querySelector('#filePhoto').files[0];
-  const name = +new Date() +"_" + file.name;
-  constmetadata = {
-    contentType: file.type
-  };
-  const task = ref.child(name).put(file,metadata);
-  task
-    .then(url => {
-      console.log(url);
-      document.querySelector("#image").src = url;
-    })
-    .catch(console.error);
-}
+// function uploadImage(){
+//   const ref = firebase.storage().ref('Tutor/');
+//   const file = document.querySelector('#filePhoto').files[0];
+//   const name = +new Date() +"_" + file.name;
+//   constmetadata = {
+//     contentType: file.type
+//   };
+//   const task = ref.child(name).put(file,metadata);
+//   task
+//     .then(url => {
+//       console.log(url);
+//       document.querySelector("#image").src = url;
+//     })
+//     .catch(console.error);
+// }
 
 //add data for tutor class 
 const addclassForm = document.querySelector('#addclass-Form');
@@ -124,11 +97,12 @@ addclassForm.addEventListener('submit',(e) =>{
   var uid = firebase.auth().currentUser.uid;
 
  db.collection('TutorRegistration').doc(uid).collection('ClassRegistration').add({
-      ClassFrom: addclassForm['f_time'].value,
-      ClassTo: addclassForm['t_time'].value,
-      DayClass: addclassForm['day'].value,
-      SubjClass: addclassForm['t_subj'].value,
-      TeachForm: addclassForm['tech_form'].value,
+   
+      ClassFrom: addclassForm['f_time'].value ,
+      ClassTo: addclassForm['t_time'].value ,
+      DayClass: addclassForm['day'].value ,
+      SubjClass: addclassForm['t_subj'].value ,
+      TeachForm: addclassForm['tech_form'].value ,
       SectClass: addclassForm['sect'].value
       
     })
@@ -158,6 +132,22 @@ techMaterials.addEventListener('submit',(e) =>{
   }).catch(err => {
     console.log('Error removing document', err);
   });
+
+  var notes = document.getElementById("Notes").files[0]
+  var storageRef = firebase.storage().ref()
+  var final = storageRef.child('TechingMaterials' + user.uid)
+  var task = final.put(notes)
+
+  task.on('state_changed', 
+  function progress(progress){
+    console.log(progress.bytesTransferred / progress.totalBytes *100)
+  },
+  function error(err){
+    console.log('There was An Err ' + err)
+  })
+  
+
+
 })
 
 
