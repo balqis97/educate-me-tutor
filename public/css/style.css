@@ -97,6 +97,18 @@ section .login-tutor{
 .flex-col{
     flex-direction: column;
 }
+.link {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: .5rem;
+    box-shadow: 0px 5px 15px rgba(129, 68, 68, 0.35);
+}
+
+.link p,
+.link a {
+    padding: 0 .5rem;
+    font-size: .8rem;
+}
 
 .login-tutor{
     padding:0;
@@ -248,7 +260,7 @@ header input{
 
 .input-group input{
     width: 100%;
-    padding: 1.5rem 3rem;
+    padding: 1rem 3rem;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     background-color: var(--gray);
@@ -520,9 +532,7 @@ b#sign-up {
     align-items: center;
     width: 100%;
     box-shadow: 0px 5px 15px rgba(129, 68, 68, 0.35);
-    display:flexbox;
-   
- 
+    display:flex;
 }
 
 .image-icon{
@@ -549,7 +559,7 @@ b#sign-up {
 }
 
 #uploadBtn{
-    margin: 1rem;
+    /* margin: 1rem; */
     margin-bottom: 0;
     background-color: var(--purple);
     padding: .5rem 1rem;
@@ -557,6 +567,7 @@ b#sign-up {
     font-size: 0.8rem;
     border-radius: .5rem;
     cursor: pointer;
+    font-family: 'Poppins';
 }
 
 #uploadBtn:hover{
@@ -576,7 +587,7 @@ b#sign-up {
     font-size: .8rem;
 }
 
-.form-details {
+.list-Profile {
     width: 100%;
     padding: .5rem;
 }
@@ -592,18 +603,14 @@ b#sign-up {
     color: var(--gray-3);
 }
 
-.input-details input {
+.input-details p {
     padding: .5rem;
+    color: var(--gray-3);
+    font-size: .8rem;
     font-family: "Poppins";
     border-radius: .5rem;
     background-color: var(--gray);
-    border-radius: 0.5rem;
-    border: 0.125rem solid var(--white);
     outline: none;
-}
-
-.input-details input:focus{
-    border: 0.125rem solid var(--pink);
 }
 
 .update-btn{
@@ -628,126 +635,72 @@ b#sign-up {
     background-color: var(--pink);
 }
 
-.student-class{
-    margin: 1rem;
-}
- 
-.student-class h2{
+.profile-box .card h2{
+    font-size: 18;
+    font-weight: 600;
+    padding-top: .5rem;
     color: var(--purple);
-    font-size: 1.2rem;
+}
+.create-class h2{
+    font-family: 'Poppins';
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--purple);
 }
 
-.class-enrolled{
-    box-shadow: 0px 5px 15px rgba(129, 68, 68, 0.35);
-    margin: 1rem;
+.add-class-form,
+.display-class {
+    margin: 1rem 1rem;
     padding: 1rem;
+    border-radius: .5rem;
+    align-items: center;
     width: 100%;
-    border-radius: 1rem;
-    justify-content: space-between;
+    box-shadow: 0px 5px 15px rgba(129, 68, 68, 0.35);
+    display:flex;
 }
 
-.class-details{
-    text-align: left;
-    margin: .5rem;
+.add-class-form form div{
+    width: 14%;
 }
 
-.class-details ul li{
-    list-style: none;
+.add-class-form form label{
+    font-size: 0.8rem;
+    padding: .5rem .2rem;
+    font-weight: 600;
+    color: var(--gray-3);
 }
 
-.class-details ul .subject{
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--blue);
-    padding-bottom: .5rem ;
-}
-
-.class-details ul .teacher, .date-time{
+.add-class-form form div input,
+.add-class-form form div select{
+    padding: .5rem;
     color: var(--gray-3);
     font-size: .8rem;
-}
-
-.class-buttons{
-    margin: .5rem;
-}
-
-.class-buttons button{
-    padding: .5rem 1rem;
-    margin: .5rem;
-    font-family: 'Poppins';
-    cursor: pointer;
+    font-family: "Poppins";
     border-radius: .5rem;
+    background-color: var(--gray);
+    outline: none;
     border: none;
+}
+
+.add-class-form form button{
     color: var(--white);
-    background-color: var(--purple);
-}
-.class-buttons button:hover{    
-    background-color: var(--pink);
-}
-
-.class-buttons .payment-fee{
-    background-color: green;
+    width: 100%;
+    margin: 0 .5rem .5rem;
+    font-family: 'Poppins';
+    font-size: 1rem;
+    font-weight: 300;
 }
 
-.class-buttons .payment-fee:hover{
-    background-color: rgb(76, 172, 76);
+.display-class table {
+    font-family: 'Poppins';
 }
 
-.class-buttons .unenroll-class{
-    background-color: red;
-}
 
-.class-buttons .unenroll-class:hover{
-    background-color: rgb(255, 82, 82);
-}
 
 /* tutor profile style ends */
 
-/* feature style starts */
-
-.features .title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.features .title h2{
-    color: var(--purple);
-    font-size: 2rem;
-    padding: 1rem;
-}
-
-.features .category{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.features .category .box{
-    flex: 1 1 30rem;
-    background: white;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 20px;
-    text-align: center;
-}
-
-.features .category .box img{
-    width: 10rem;
-}
-
-.features .category .box p{
-    font-size: 1rem;
-    color: #515055;
-    padding: 2rem;
-}
-
-/* features style ends */
 /* Modal */
-.modal-wrapper {
+/* .modal-wrapper {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -805,8 +758,9 @@ b#sign-up {
     margin-bottom: 1rem;
     text-indent: .5rem;
     outline: none;
-  }
-/*tutor job style starts*/
+  } */
+
+  /*tutor job style starts*/
 
 .container-register{ 
     margin: auto;
@@ -818,50 +772,65 @@ b#sign-up {
     padding: 25px 30px;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-  }
-  .container-register .title{
-      font-size: 25px;
-      font-weight: 700;
-      position: relative;
-      text-align: center;
-  }
+}
+.container-register .title{
+    font-size: 25px;
+    font-weight: 600;
+    position: relative;
+    text-align: center;
+    color: var(--purple);
+}
   
-  .content form .user-details{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin: 20px 0 12px 0;
-  }
-  form .user-details .input-box, form .user-details .file-box{
-      margin-bottom: 15px;
-      width: calc(100% / 2 - 20px);
-  }
-  form .input-box span.details, form .file-box span.details {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 5px;
-  }
-  .user-details .input-box input, .user-details .input-box select {
-      height: 45px;
-      width: 100%;
-      outline: none;
-      font-size: 16px;
-      border-radius: 5px;
-      padding-left: 15px;
-      border: 1px solid #ccc;
-      border-bottom-width: 2px;
-      transition: all 0.3s ease;
-  }
-   
-  form .button{
-     height: 45px;
-     margin: 35px 0
-   }
-
-  /*tutor job style ends*/
-
-  /* tutor-dashboard style start */
+.content form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
   
+form .user-details .input-box,
+form .user-details .file-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+  
+form .input-box span.details, 
+form .file-box span.details,
+form .user-details .resume-input .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: .5rem;
+    font-size: .9rem;
+    padding-left: .2rem;
+    color: var(--gray-3);
+}
+  
+.user-details .input-box input, 
+.user-details .input-box .subject option,
+.user-details .input-box select {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: .7rem;
+    border: none;
+    transition: all 0.3s ease;
+    background-color: var(--gray);
+    font-family: 'Poppins', sans-serif;
+    font-size: .9rem;
+    margin-bottom: .5rem;
+}
+  
+.container-register .content form button{
+    font-family: 'Poppins', sans-serif;
+    height: 45px;
+    margin: 35px 0
+}
+
+/*tutor job style ends*/
+
+/* tutor-dashboard style start */
 
 .title-container {
     display: flex;
@@ -940,6 +909,162 @@ b#sign-up {
    
   }
 
+/* teaching materials section starts */
+
+.Class-tutor-content h2{
+    font-size: 1.5rem;
+    padding: 1rem;
+    padding-top: 3rem;
+    color: var(--purple);
+}
+
+.page-content{
+    align-items: center;
+    justify-content: center;
+}
+
+.teach-Materials-sections{
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0px 5px 15px rgba(129, 68, 68, 0.35);
+    display:flex;
+}
+
+.teach-Materials-add{
+    width: 100%;
+    padding: .5rem;
+}
+
+.class-info .subject-section h3{
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--blue);
+    padding-bottom: .5rem;
+}
+.class-info .subject-section p{
+    font-family: 'Poppins';
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gray-3);
+    padding-bottom: .5rem;
+
+}
+.add-teachMat{
+    align-items: center;
+    justify-content: space-evenly;
+    padding: .5rem;
+    padding-bottom: 1rem;
+}
+
+.add-teachMat div{
+    width: 15%;
+}
+
+.add-teachMat label{
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: .5rem .2rem;
+    color: var(--gray-3);
+}
+
+.add-teachMat .topicClass{
+    width: 12rem;
+    padding: .5rem;
+    color: var(--gray-3);
+    font-size: .8rem;
+    font-family: "Poppins";
+    border-radius: .5rem;
+    background-color: var(--gray);
+    outline: none;
+    border: none;
+}
+
+.add-teachMat div .filetype{
+    width: 12rem;
+    padding: .5rem;
+
+}
+
+.add-teachMat .add-button {
+    align-items: center;
+    justify-content: center;
+    width: 3%;
+}
+.add-teachMat .add-button span i{
+    font-size: 2rem;
+    color:var(--purple);
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+.details-teach-mat{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.details-teach-mat div{
+    justify-content: space-evenly;
+}
+
+.details-teach-mat div h2{
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 1rem;
+    padding: .5rem;
+    text-align: left;
+    color: var(--gray-3);
+
+}
+
+/* teaching materials section ends */
+
+/* student request section starts */
+
+.student-list{
+    padding: .5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.student-list h2{
+    font-size: 1.5rem;
+    padding: 1rem;
+    padding-top: 3rem;
+    color: var(--purple);
+}
+
+.table-student-req{
+    width: 100%;
+    align-items: center;
+}
+
+.student-request,
+.student-display{
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0px 5px 15px rgba(129, 68, 68, 0.35);
+    display:flex;
+    flex-direction: column;
+}
+
+.student-request h3,
+.student-display h3{
+    font-family: 'Poppins';
+    padding: 1rem;
+    font-weight: 600;
+    color: var(--blue);
+}
+
+
+/* student request section ends */
 
 /* table  */
 table{
@@ -947,13 +1072,17 @@ table{
     border-collapse:initial;
 }
 table.list{
-   gap: 10px;
+    gap: 10px;
     row-gap: 10px;
     width: 95%;
-    border: 1px solid #ddd;
+    border: 1px solid var(--gray);
 }
 
 td, th {
+    font-family: 'Poppins';
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--blue);
     align-items: center;
     gap: 10px;
     padding: 8px;

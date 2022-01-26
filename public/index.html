@@ -94,10 +94,10 @@
                           </div>
                           <button href="#tutor-profile-section" id="tutor-signin" >Sign in</button>
                          
-                          <p>
+                          <!-- <p>
                               <span>Don't have an account?</span>
                               <b id="sign-up">Sign up here</b>
-                          </p>
+                          </p> -->
                       </form>
                   </div>
 
@@ -174,10 +174,10 @@
                     <span class="details">Background Education</span>
                     <input class="Edu" id="edu" type="text" placeholder="*eg: Master in Mathematic (UM)" required>
                   </div>
-                  <div>
+                  <div class="resume-input">
                       <span class="details">Upload Your Resume</span>
-                      <input type="file" id="file" >
-                    </div>
+                      <input class="file-input" type="file" id="file" >
+                  </div>
                 </div>
               </div>
               <button>Register</button>
@@ -190,54 +190,57 @@
     <!-- Tutor Profile start -->
       <section class="Tutor-profile-content" id="tutor-profile-section" >
         
-          <div class="learner-container">
-              <div class="profile-box flex-col">
-                <h2>My Profile</h2>
-                  <div class="image-icon">
-                      <img src="images/profile-icon.jpeg" id="photo">
-                  </div>
+        <div class="link">
+          <p><a href="index.html">Home</a> / <a href="#">My Profile</a></p>
+        </div>
 
-                  <div class="upload-tutorPicture">
-                      <input type="file" id="filePhoto" class="file-photo">
-                      <button onclick="uploadImage()" id="uploadBtn"> Upload Image </button>
-                      <!-- <label for="file" id="uploadBtn">Choose Photo</label> -->
-                  </div>
+        <div class="learner-container">
 
-              </div> 
+          <div class="profile-box flex-col">
 
-              <div class="profile-box2">
-                  <div id="list-Profile">
-                    <div>
-                      <h4>Name:</h4> 
-                      <p class="tutorName"> </p>
-                    </div> <br>
-                      <div>
-                        <label><h4>Email:</h4> </label>
-                        <p class="tutorEmail"> </p>
-                      </div> <br>
-                      <div>
-                        <label> <h4> Phone Number:</h4></label>
-                        <p class="tutorContactNo"> </p>
-                      </div> <br>
-                      <div>
-                        <label> <h4> Teaching Subject:</h4></label>
-                        <p class="teachingSubj"> </p>
-                      </div><br>
-                      <div>
-                        <label> <h4> Education Background:</h4></label>
-                        <p class="eduBackground"> </p>
-                      </div> <br>
-                      <div>
-                        <label> <h4> Fees:</h4></label>
-                        <p class="paymentFee"></p>
-                        <p class="ClassFrom"> </p>
-                        <p class="DayClass"> </p>
-                      </div> <br>
-                  </div> 
-                  <br>
-                  <!-- <button class="updateProfile-btn">Update</button> -->
-                  
+            <div class="image-icon">
+              <img src="images/profile-icon.jpeg" id="photo">
+            </div>
+
+            <div class="upload-picture">
+              <input type="file" id="filePhoto" class="file-photo">
+              <button onclick="uploadImage()" id="uploadBtn"> Upload Image </button>
+              <!-- <label for="file" id="uploadBtn">Choose Photo</label> -->
+            </div>
+
+          </div> 
+
+          <div class="profile-box2">
+            <div class="list-Profile">
+              <div class="input-details flex-col">
+                <label>Name </label>
+                <p class="tutorName"> </p>
               </div>
+              <div class="input-details flex-col">
+                <label>Email </label>
+                <p class="tutorEmail"> </p>
+              </div> 
+              <div class="input-details flex-col">
+                <label>Phone Number</label>
+                <p class="tutorContactNo"> </p>
+              </div>
+              <div class="input-details flex-col">
+                <label>Teaching Subject</label>
+                <p class="teachingSubj"> </p>
+              </div>
+              <div class="input-details flex-col">
+                <label>Education Background</label>
+                <p class="eduBackground"> </p>
+              </div>
+              <div class="input-details flex-col">
+                <label>Fees</label>
+                <p class="paymentFee"></p> <br>
+                <p class="ClassFrom"> </p> <br>
+                <p class="DayClass"> </p>
+              </div> 
+            </div> 
+                  <!-- <button class="updateProfile-btn">Update</button> -->
+          </div>
 
               <!-- Calendar Part -->
         <div id ="table" class="profile-box flex-col">
@@ -254,156 +257,222 @@
           
           </div>
         </div>
-          </div>
+      </div>
 
-          <div class="profile-box3">
-              <div>
-                <h2>My Class</h2><br>
-                        <form class="form-inline" id="addclass-form">
-                                <div>
-                                    <label> <h4>Class Start</h4></label><label class="validation-error hide" id="fullNameValidationError">*required.</label>
-                                    <input type="time" name="time" id="f_time">
-                                </div>
-                                <div>
-                                  <label> <h4>Class End</h4></label><label class="validation-error hide" id="fullNameValidationError">*required.</label>
-                                  <input type="time" name="time" id="t_time">
-                                </div>
-                                <div class="input-box">
-                                  <span class="details"> <h4>Day</h4> </span>
-                                  <select type="text"class="Day" id="day" >
-                                      <option value="Select Day"> Select Day </option>
-                                      <option value="Monday">Monday</option>
-                                      <option value="Tuesday">Tuesday</option>
-                                      <option value="Wednesday">Wednesday</option>
-                                      <option value="Thursday">Thursday</option>
-                                      <option value="Friday">Friday</option>
-                                      <option value="Saturday">Saturday</option>
-                                      <option value="Sunday">Sunday</option>
-                                  </select>
-                                </div>
-                                <div class="input-box">
-                                  <span class="details"> <h4>Subject</h4></span>
-                                  <select type="text" class="t_subject" id="t_subj" >
-                                      <option value="Select subject"> Select Subject </option>
-                                      <option value="Mathematic">Mathematic</option>
-                                      <option value="English">English</option>
-                                  </select>
-                                </div>
-                                <div class="input-box">
-                                  <span class="details"><h4>Form</h4></span>
-                                  <select type="text" class="tech_form" id="tech_form" >
-                                      <option value="Select Section"> Select Form </option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                  </select>
-                                </div>
-                                <div class="input-box">
-                                  <span class="details"><h4>Section</h4></span>
-                                  <select type="text" class="section" id="sect" >
-                                      <option value="Select Section"> Select Section </option>
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                  </select>
-                                </div>
-                              <br>
-                                  <button > Add Class </button>
-                              
-                              </form>
-                  
-                  <br>
-                  <table class="list" id="listClass">
-                    <thead>
-                        <tr >
-                            <th>Time From</th>
-                            <th>Time To</th>
-                            <th>Day</th>
-                            <th>Subject</th>
-                            <th>Form</th>
-                            <th>Section</th>
-                            <th colspan="2">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-          
-                    </tbody>
-                </table>
+      <div class="create-class align-center flex-col">
 
-                <p> </p>
-              </div>
-          </div> 
+        <h2>My Class</h2>
+
+        <div class="add-class-form">
+          <form class="form-inline " id="addClass-form">
+            <div class="class-time">
+              <label>Class Start</label>
+              <label class="validation-error hide" id="fullNameValidationError">*required.</label>
+              <input type="time" name="time">
+            </div>
+            <div class="class-time">
+              <label>Class End</label>
+              <label class="validation-error hide" id="fullNameValidationError">*required.</label>
+              <input type="time" name="time">
+            </div>
+            <div>
+              <label>Day</label>
+              <select type="text"class="Day" id="day" >
+                <option value="Select Day"> Select Day </option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+              </select>
+            </div>
+            <div>
+              <label>Subject</label>
+              <select type="text" class="t_subject" id="t_subj" >
+                <option value="Select subject"> Select Subject </option>
+                <option value="Mathematic">Mathematic</option>
+                <option value="English">English</option>
+              </select>
+            </div>
+            <div>
+              <label>Form</label>
+              <select type="text" class="tech_form" id="tech_form" >
+                <option value="Select Section"> Select Form </option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div>
+              <label>Section</label>
+              <select type="text" class="section" id="sect" >
+                <option value="Select Section"> Select Section </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <button>Add Class</button>
+          </form>
+        </div>
+
+        <div class="display-class align-center">
+            <table class="list" id="listClass">
+              <thead>
+                <tr>
+                    <th>Time From</th>
+                    <th>Time To</th>
+                    <th>Day</th>
+                    <th>Subject</th>
+                    <th>Form</th>
+                    <th>Section</th>
+                    <th colspan="2">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+  
+              </tbody>
+            </table>
+        </div>
+      </div>
       </section>
     <!-- Tutor Profile End -->
 
     <!-- CLASS TUTOR section starts -->
+    
       <section class="Class-tutor-content" id="class-tutor-section">
-          <section id="grid-container3">
-            <form id ="techMaterials" class="grid-item ">
-              <h2>Teaching Materials</h2> <br>
-              <div>
-                <h3 class="SubjClass"> </h3>
-                <p class="SectClass"> </p>
-              </div> <br>
-              <div id="name-matrials"> 
-                <div class=""> </div>
+        <div class="link">
+          <p><a href="index.html">Home</a> / <a href="#">My Profile</a> / <a href="#">Teaching Materials</a></p>
+        </div>
+        <div class="page-content align-center flex-col">
+
+          <h2>Teaching Materials</h2>
+
+          <div class="teach-Materials-sections">
+
+            <form id ="techMaterials" class="teach-Materials-add">
+              
+              <div class="class-info">
+                
+                <div class="subject-section">
+                  <h3 class="SubjClass">Subject Name</h3>
+                  <p class="SectClass">Section</p>
+                </div> <br>
+                
+                <div id="name-materials"> 
+                  <div class=""> </div>
+                
+                </div>  
               </div>
-                <br>
+              
+              <div class="add-teachMat form-inline">
+                
                 <div class="input-box">
-                  <span class="details">Date: </span>
+                  <label>Date</label>
                   <input  class="topicClass" id="ClassDate" type="date" placeholder="Enter your topic" required>
                 </div>
+                
                 <div class="input-box">
-                  <span class="details">Topic: </span>
+                  <label>Topic</label>
                   <input  class="topicClass" id="ClassTopic" type="text" placeholder="Enter your class link" required>
-                </div><br>
+                </div>
+                
                 <div>
-                <span class="topic">Notes:</span>
-                <input type="file" id="Notes">
-              </div>
-              <div>
-                <span class="topic">Exercise:</span>
-                <input type="file" id="Exercise">
-              </div> 
-              <div>
-                <button> Add </button>
-              </div>
-            </form>
-            </div>
-        
-          </section>
+                  <label>Notes</label>
+                  <div>
+                    <input class="filetype" type="file" id="Notes">
+                  </div>
+                </div>
+                
+                <div>
+                  <label>Exercise</label>
+                  <input class="filetype" type="file" id="Exercise">
+                </div> 
 
-          <section id="grid-container3">
-            <form id ="listMaterials" class="grid-item ">
-              
-              <div id="name-materials"> 
-                <div class=""> </div>
+                <div class="add-button">
+                  <span><i class="fas fa-plus-circle"></i></span>
+                </div>
               </div>
-                <br>
-                <div class="input-box">
-                  <h3 class="DateClass"> Date : </h3>
-                </div> <br>
-                <div class="input-box">
-                  <h3  class="TopicClass" >Topic :</h3>
-                </div> <br>
-                <div>
-                <span class="topic">Notes:</span>
-              </div> <br>
-              <div>
-                <span class="topic">Exercise:</span>
-              </div> <br>
-              <div>
-              </div>
-            </form>
-            </div>
         
-          </section>
+            </form>
+          </div>
+        </div>
+
+
+        <div class="teach-Materials-sections align-center">
+
+          <table class="list" id="listClass">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Topic</th>
+                <th>Notes</th>
+                <th>Exercise</th>
+              </tr>
+            </thead>
+            <tbody>
+  
+            </tbody>
+          </table>
+        </div>
 
       </section>      
     <!-- CLASS TUTOR section ends -->
 
      <!-- Student request section starts -->
       <section class="Student-list-content" id="student-list-section">
-  
+        
+        <div class="link">
+          <p><a href="index.html">Home</a> / <a href="#">Student Request</a></p>
+        </div>
+
+        <div class="student-list">
+
+          <h2>My Students</h2>
+
+          <div class="student-request">
+            <h3>Student Request</h3>
+
+            <div class="table-student-req align-center">
+              <table class="list" id="listStudents">
+                <thead>
+                  <tr >
+                    <th>Name</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Subject</th>
+                    <th colspan="2" >Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+      
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="student-display">
+            <h3>Student List</h3>
+
+            <div class="table-student-req align-center">
+              <table class="list" id="listStudents">
+                <thead>
+                  <tr >
+                    <th>Name</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Subject</th>
+                  </tr>
+                </thead>
+                <tbody>
+      
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
           <!-- <section id="grid-container3">
             <h2>My Student</h2> <br>
             <div id ="table" class="grid-item ">
@@ -429,61 +498,14 @@
               </div>
               </div>
             </div>
-          </section> -->
-
-          <section id="grid-container3">
-            <h2>My Student</h2> <br>
-            <div id ="table" class="grid-item ">
-                <h3>Student Request</h3> <br>
-
-                <table class="list" id="listStudents">
-                  <thead>
-                      <tr >
-                          <th>Name</th>
-                          <th>Day</th>
-                          <th>Time</th>
-                          <th>Subject</th>
-                          <th colspan="2" >Action</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-        
-                  </tbody>
-              </table>
-              </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="grid-container3">
-            <div id ="table" class="grid-item ">
-                <h3>Student List</h3> <br>
-
-                <table class="list 2" id="listStudents 2">
-                  <thead>
-                      <tr >
-                          <th>Name</th>
-                          <th>Day</th>
-                          <th>Time</th>
-                          <th>Subject</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-        
-                  </tbody>
-              </table>
-              </div>
-              </div>
-            </div>
-          </section>
-          
+          </section> -->          
       </section>       
     <!-- Student request section ends -->
 
 
 
 <!-- footer section starts -->
-  <!-- <section class="footer">
+  <section class="footer">
 
     <div class="box-container">
 
@@ -505,7 +527,7 @@
 
     <div class="credit"> Created by <span>E-ducate.Me's Developers</span> | All Rights Reserved</div>
 
-  </section> -->
+  </section>
 <!-- footer section ends -->
 
 
