@@ -170,13 +170,14 @@ const setupUI = (user) => {
                     const btnView = document.querySelector(`[data-id='${doc.id}'] .onView`)
                     btnView.addEventListener('click',(e) =>{
                       e.preventDefault();
-                      // window.location.href = '#class-tutor-section';
+                      window.location.href = "#class-tutor-section";
                       const classMat = document.querySelector("#classMat");
                       db.collection('TutorRegistration').doc(user.uid).collection('ClassRegistration').doc(`${doc.id}`).get().then(() =>{
                         classMat.innerHTML +=`
                         <h3> ${doc.data().SubjClass}</h3>
                         <p> Section ${doc.data().SectClass}</p>`
                       })
+                      
                     })
                    
                     //delete data from tutor class
@@ -254,19 +255,22 @@ const setupUI = (user) => {
 
                     const acceptbtn = document.querySelector(`[data-id='${doc.id}'] .onAccept`);
                     acceptbtn.addEventListener('click',() =>{
-                      const confirmStud = document.querySelector('#confirmStud');
-                      document.getElementById("listStudents").deleteRow(1)
-                        db.collection('TutorRegistration').doc(user.uid).collection('StudentRequest').doc(`${doc.id}`).get().then(snapshot =>{
+                     
+                     const confirmStud = document.querySelector('#confirmStud');
+                     document.getElementById("listStudents").deleteRow(1);
+                     db.collection("TutorRegistration").doc(user.uid).collection('StudentRequest').onSnapshot(snapshot =>{
+                          console.log(doc.data());
                           snapshot.docs.forEach(doc =>{
                             confirmStud.innerHTML += `
                             <tr data-id='${doc.id}'>
                             <td>${doc.data().studName}</td>
                             <td>${doc.data().day} <br> ${doc.data().time}</td>
                             <td>${doc.data().subject}</td> 
-                            </tr>`
-                          })
-                        })
+                            </tr>`;
+                          });
+                        });
                       })
+                
                   
                     //delete students from list tutor class
                     const btnDelete = document.querySelector(`[data-id='${doc.id}'] .onReject`);

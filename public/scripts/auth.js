@@ -159,8 +159,14 @@ loginForm.addEventListener('submit', (e) => {
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         //reset the form
         alert("Welcome Back to Educate.me")
+
+        $('#login-tutor-section').hide();
+        $('#student-list-section').hide();
+        $('#tutor-profile-section').show();
+        $('#apply-tutor-section').hide();
+        $('#class-tutor-section').hide();
         //loginForm.reset();
-        window.location.href ="#tutor-profile-nav";
+        window.location.href ="#tutor-profile-section";
     })
 })
 
