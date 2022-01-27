@@ -54,6 +54,7 @@ section .login-tutor{
     font-size: 1rem;
     outline: none;
 }
+
 .button, .updateProfile-btn{
     cursor: pointer;
     width: 100%;
@@ -613,7 +614,7 @@ b#sign-up {
     outline: none;
 }
 
-.update-btn{
+.update-btn {
     justify-content: flex-end;
     align-items: center;
     margin: 1rem;
@@ -647,7 +648,26 @@ b#sign-up {
     font-weight: 700;
     color: var(--purple);
 }
-
+.student-list  h2{
+    font-family: 'Poppins';
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--purple);
+}
+.learner-container h2{
+    font-family: 'Poppins';
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--purple);
+}
+.page-content h2{
+    font-family: 'Poppins';
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--purple);
+}
 .add-class-form,
 .display-class {
     margin: 1rem 1rem;
@@ -843,6 +863,124 @@ form .user-details .resume-input .details {
    
   }
 
+/*  popup style starts */
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 2;
+    display: none;
+}
+
+.modal-content{
+    background: var(--white);
+    margin-top: 100px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: .5rem;
+    border: 1rem;
+    z-index: 4;
+}
+
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: .5rem;
+}
+
+.modal-header h3{
+    color: var(--purple);
+}
+
+.modal-header .modal-close{
+    justify-content: flex-end;
+    font-size: .75rem;
+    background-color: var(--gray);
+    border: 0;
+    outline: 0;
+    padding: .5rem .55rem;
+    border-radius: 0%;
+    cursor: pointer;
+    width: 30;
+}
+
+.modal-body{
+    color: var(--gray-2);
+    padding: .5rem;
+}
+
+.request-tutor-form, 
+.updateDetails-form,
+.rateFeedback-form,
+.payment-form,
+.unenroll-form
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.request-tutor-form label, 
+.updateDetails-form label,
+.rateFeedback-form label,
+.payment-form label,
+.unenroll-form label
+{
+    color: var(--gray-2);
+    font-size: .75rem;
+    padding-top: .5rem;
+}
+
+.request-tutor-form input, 
+.request-tutor-form select, 
+.updateDetails-form input,
+.rateFeedback-form select,
+.rateFeedback-form input,
+.payment-form input{
+    padding: .5rem;
+    background-color: var(--gray);
+    border: 0;
+    border-radius: .5rem;
+    font-family: 'Poppins';
+    font-size: .75rem;
+    margin: .5rem 0;
+}
+
+.request-tutor-form option,
+.rateFeedback-form option{
+    padding: .5rem;
+    border: .125rem solid var(--gray-2);
+    border-radius: .5rem;
+    color: var(--gray-3);
+}
+
+.request-tutor-form input:focus{
+    border: 0.125rem solid var(--pink);
+}
+
+.request-tutor-form button
+{
+    background-color: var(--purple);
+    padding: .5rem;
+    font-family: 'Poppins';
+    color: var(--white);
+    border: 0;
+    border-radius: .5rem;
+    margin-top: .5rem;
+    cursor: pointer;
+}
+
+
+
+/*  popup style ends */
+
 /* teaching materials section starts */
 
 .Class-tutor-content h2{
@@ -922,11 +1060,16 @@ form .user-details .resume-input .details {
     padding: .5rem;
 
 }
-
+/* .add-button should here */
 .add-teachMat .add-button {
     align-items: center;
     justify-content: center;
     width: 3%;
+    
+}
+.request-tutor-btn{
+    margin-left: auto;
+    margin-right: auto;
 }
 .add-teachMat .add-button span i{
     font-size: 2rem;
@@ -1007,18 +1150,10 @@ table{
     table-layout:initial;
 }
 table.list{
-<<<<<<< HEAD
-    margin-left: auto;
-    margin-right: auto;
-    gap: 10px;
-    row-gap: 10px;
-    width: 90%;
-=======
     gap: 10px;
     row-gap: 10px;
     width: 95%;
     border: 1px solid var(--gray);
->>>>>>> 536c38e056947f81ee975251a3cb663ae49cbe49
 }
 
 td, th {
@@ -1036,7 +1171,7 @@ th {
     padding: 1rem auto;
   }
 
-.form-inline {  
+.form-inline  {  
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -1044,6 +1179,9 @@ th {
     margin-left: auto;
     gap: 30px;
     width: 100%;
+  }
+  .form-inline button {
+      width: 100;
   }
 
 tr:nth-child(even) {

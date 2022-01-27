@@ -73,21 +73,9 @@ registerForm.addEventListener('submit', (e) =>{
       window.location.href = "#tutor-profile-nav";
 })
 
-// function uploadImage(){
-//   const ref = firebase.storage().ref('Tutor/');
-//   const file = document.querySelector('#filePhoto').files[0];
-//   const name = +new Date() +"_" + file.name;
-//   constmetadata = {
-//     contentType: file.type
-//   };
-//   const task = ref.child(name).put(file,metadata);
-//   task
-//     .then(url => {
-//       console.log(url);
-//       document.querySelector("#image").src = url;
-//     })
-//     .catch(console.error);
-// }
+
+
+
 
 //add data for tutor class 
 const addclassForm = document.querySelector('#addclass-Form');
@@ -98,16 +86,17 @@ addclassForm.addEventListener('submit',(e) =>{
 
  db.collection('TutorRegistration').doc(uid).collection('ClassRegistration').add({
    
-      ClassFrom: addclassForm['f_time'].value ,
-      ClassTo: addclassForm['t_time'].value ,
-      DayClass: addclassForm['day'].value ,
-      SubjClass: addclassForm['t_subj'].value ,
-      TeachForm: addclassForm['tech_form'].value ,
+      ClassFrom: addclassForm['f_time'].value,
+      ClassTo: addclassForm['t_time'].value,
+      DayClass: addclassForm['day'].value,
+      SubjClass: addclassForm['t_subj'].value,
+      TeachForm: addclassForm['tech_form'].value,
       SectClass: addclassForm['sect'].value
       
     })
       .then(()=> {
       addclassForm.reset();
+      alert('Class succesfully add!');
       console.log('Class succesfully add!');
     }).catch(err => {
       console.log('Error removing document', err);
@@ -122,9 +111,11 @@ techMaterials.addEventListener('submit',(e) =>{
   e.preventDefault();
   var uid = firebase.auth().currentUser.uid;
 
-  db.collection('TutorRegistration').doc(uid).collection('ClassRegistration').doc(uid).collection('TeachingMaterials').add({
+  db.collection('TutorRegistration').doc(uid).collection('ClassRegistration').doc('ClassRegistration').collection('TeachingMaterials').add({
     DateClass: techMaterials['ClassDate'].value,
+    LinkClass : techMaterials['ClassLink'].value,
     TopicClass: techMaterials['ClassTopic'].value
+    
     
   }).then(()=> {
     techMaterials.reset();
@@ -145,11 +136,8 @@ techMaterials.addEventListener('submit',(e) =>{
   function error(err){
     console.log('There was An Err ' + err)
   })
-  
-
 
 })
-
 
 
 //logout
@@ -172,7 +160,7 @@ loginForm.addEventListener('submit', (e) => {
         //reset the form
         alert("Welcome Back to Educate.me")
         //loginForm.reset();
-        
+        window.location.href ="#tutor-profile-nav";
     })
 })
 
